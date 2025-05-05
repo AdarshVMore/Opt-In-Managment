@@ -1,0 +1,598 @@
+/* Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+body {
+  background-color: #f5f7fa;
+  min-height: 100vh;
+}
+
+/* Modal styles - only applied to modal containers */
+.modal-overlay.active body {
+  overflow: hidden;
+}
+
+/* Modal Container */
+.modal-container {
+  width: 100%;
+  max-width: 1000px;
+  margin: 20px;
+}
+
+.modal {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+/* Modal Header */
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.modal-header h1 {
+  color: #3b82f6;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  color: #9ca3af;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  transition: background-color 0.2s;
+}
+
+.close-btn:hover {
+  background-color: #f3f4f6;
+  color: #4b5563;
+}
+
+/* Modal Content */
+.modal-content {
+  display: flex;
+  padding: 24px;
+  gap: 24px;
+}
+
+.form-section {
+  flex: 1;
+  min-width: 0;
+  max-height: 70vh;
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+.form-section::-webkit-scrollbar {
+  width: 6px;
+}
+
+.form-section::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.form-section::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 3px;
+}
+
+.form-section::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+.preview-section {
+  flex: 1;
+  min-width: 0;
+  position: relative;
+}
+
+.preview-section .whatsapp-icon {
+  position: absolute;
+  top: 20px;
+  left: 0;
+}
+
+/* Form Elements */
+.form-group {
+  margin-bottom: 24px;
+}
+
+.form-group.hidden {
+  display: none;
+}
+
+.form-label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 8px;
+  color: #374151;
+}
+
+.form-input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: border-color 0.2s;
+}
+
+.form-input:focus {
+  border-color: #3b82f6;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1);
+}
+
+.form-textarea {
+  width: 100%;
+  height: 150px;
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 14px;
+  resize: none;
+  transition: border-color 0.2s;
+}
+
+.form-textarea:focus {
+  border-color: #3b82f6;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1);
+}
+
+.textarea-container {
+  position: relative;
+}
+
+.char-count {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  font-size: 12px;
+  color: #9ca3af;
+}
+
+/* Formatting Controls */
+.formatting-controls {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.format-btn {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  background-color: white;
+  color: #4b5563;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.format-btn:hover {
+  background-color: #f3f4f6;
+}
+
+/* Radio Buttons */
+.option-group {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.option-group.horizontal {
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.radio-container {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+.radio-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.radio-custom {
+  position: relative;
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border: 2px solid #d1d5db;
+  border-radius: 50%;
+  margin-right: 10px;
+  transition: all 0.2s;
+}
+
+.radio-container input:checked ~ .radio-custom {
+  border-color: #3b82f6;
+}
+
+.radio-container input:checked ~ .radio-custom::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #3b82f6;
+}
+
+.label-text {
+  font-size: 14px;
+  color: #374151;
+}
+
+/* File Upload */
+.file-info {
+  margin-bottom: 12px;
+}
+
+.file-info p {
+  font-size: 13px;
+  color: #6b7280;
+  margin-bottom: 4px;
+}
+
+.upload-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 12px;
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.upload-btn:hover {
+  background-color: #2563eb;
+}
+
+/* Divider */
+.divider {
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+  color: #9ca3af;
+  font-size: 14px;
+}
+
+.divider::before {
+  content: "";
+  flex: 1;
+  background-color: transparent;
+  background-image: linear-gradient(
+    to right,
+    transparent,
+    #ffffff 30%,
+    #68687b 70%
+  );
+  height: 2px;
+  border-radius: 10px;
+}
+.divider::after {
+  content: "";
+  flex: 1;
+  background-color: transparent;
+  background-image: linear-gradient(
+    to right,
+    #68687b 30%,
+    #ffffff 70%,
+    transparent
+  );
+  height: 2px;
+  border-radius: 10px;
+}
+
+.divider span {
+  padding: 0 10px;
+  font-weight: 100;
+}
+
+/* Variable Button */
+.variable-btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 6px 12px;
+  background-color: transparent;
+  color: #3b82f6;
+  border: 1px solid #3b82f6;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.variable-btn:hover {
+  background-color: rgba(59, 130, 246, 0.1);
+}
+
+/* Required Field */
+.required {
+  color: #ef4444;
+}
+
+/* Margin utilities */
+.mt-20 {
+  margin-top: 20px;
+}
+
+/* Preview Section */
+.whatsapp-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 20px;
+  z-index: 1;
+  transform: translate(-15px, -15px);
+}
+
+.message-preview {
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.preview-image {
+  width: 100%;
+  height: auto;
+  max-height: 200px;
+  overflow: hidden;
+  position: relative;
+}
+
+.preview-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.play-button-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.play-button-overlay i {
+  font-size: 48px;
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.preview-text {
+  padding: 16px;
+  background-color: white;
+  font-size: 14px;
+  color: #374151;
+  line-height: 1.5;
+}
+
+.preview-text p {
+  margin-bottom: 8px;
+}
+
+.preview-text p:last-child {
+  margin-bottom: 0;
+}
+
+.preview-document {
+  padding: 30px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.preview-document i {
+  font-size: 48px;
+  color: #6b7280;
+  margin-bottom: 10px;
+}
+
+/* Footer */
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  padding: 16px 24px;
+  border-top: 1px solid #e0e0e0;
+}
+
+.btn-cancel {
+  padding: 10px 20px;
+  background-color: white;
+  color: #374151;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-cancel:hover {
+  background-color: #f9fafb;
+}
+
+.btn-save {
+  padding: 10px 20px;
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-save:hover {
+  background-color: #2563eb;
+}
+
+/* Modal Overlay (for the modal opening) */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+  overflow: auto;
+  padding: 20px;
+}
+
+.modal-overlay.active {
+  display: flex;
+}
+
+.modal-overlay .modal-container {
+  max-width: 1000px;
+  width: 100%;
+  margin: auto;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .modal-content {
+    flex-direction: column;
+  }
+
+  .preview-section {
+    margin-top: 20px;
+  }
+
+  .form-section {
+    max-height: 50vh;
+  }
+}
+
+@media (max-width: 768px) {
+  .modal-container {
+    margin: 0;
+    max-width: 100%;
+    height: 100vh;
+  }
+
+  .modal {
+    height: 100%;
+    border-radius: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .modal-content {
+    flex: 1;
+    overflow-y: auto;
+  }
+
+  .option-group.horizontal {
+    flex-direction: column;
+    gap: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .modal-header h1 {
+    font-size: 16px;
+  }
+
+  .modal-footer {
+    padding: 12px 16px;
+  }
+
+  .btn-cancel,
+  .btn-save {
+    padding: 8px 16px;
+  }
+}
+
+/* For very small screens */
+@media (max-width: 360px) {
+  .modal-header {
+    padding: 12px 16px;
+  }
+
+  .modal-content {
+    padding: 16px;
+  }
+
+  .form-group {
+    margin-bottom: 16px;
+  }
+}
+
+/* Modal Open Body Style */
+body.modal-open {
+  overflow: hidden;
+}
+
+.modal-overlay.active {
+  display: flex;
+}
+
+/* Preview Containers */
+.preview-container {
+  display: block;
+  width: 100%;
+}
+
+.preview-container.hidden {
+  display: none;
+}
